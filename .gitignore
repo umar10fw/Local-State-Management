@@ -1,6 +1,7 @@
 # Miscellaneous
 *.class
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.lock
 *.log
 *.pyc
@@ -119,6 +120,12 @@ app.*.symbols
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
 =======
+=======
+=======
+<<<<<<< HEAD
+*.lock
+>>>>>>> 3a77eae (Initial commit)
+>>>>>>> e214048 (initial commit)
 *.log
 *.pyc
 *.swp
@@ -153,6 +160,51 @@ migrate_working_dir/
 # Symbolication related
 app.*.symbols
 
+<<<<<<< HEAD
+=======
+# Exceptions to above rules.
+!**/ios/**/default.mode1v3
+!**/ios/**/default.mode2v3
+!**/ios/**/default.pbxuser
+!**/ios/**/default.perspectivev3
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+!/dev/ci/**/Gemfile.lock
+=======
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+>>>>>>> 3a77eae (Initial commit)
 # Obfuscation related
 app.*.map.json
 
@@ -160,4 +212,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+<<<<<<< HEAD
 >>>>>>> eda12be (Initial commit)
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> eda12be (Initial commit)
+>>>>>>> 3a77eae (Initial commit)
+>>>>>>> e214048 (initial commit)

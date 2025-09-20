@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:state_managment/Custom_Widget/InheritedWidget_State/Authentication_State.dart';
+import 'package:state_managment/Custom_Widget/Key_State_Preservation/UniqueKey.dart';
+import 'Custom_Widget/InheritedWidget_State/Localization_State.dart';
+import 'Custom_Widget/InheritedWidget_State/MediaQuery_State.dart';
+import 'Custom_Widget/InheritedWidget_State/Navigation_State.dart';
+import 'Custom_Widget/InheritedWidget_State/NewScreen.dart';
+import 'Custom_Widget/Key_State_Preservation/ObjectKey.dart';
+import 'Custom_Widget/Key_State_Preservation/Value_Key_Preservation.dart';
 import 'Custom_Widget/Lifting_State/Favorite_Button.dart';
 import 'Custom_Widget/Lifting_State/FormField.dart';
 import 'Custom_Widget/Lifting_State/radioTileButton.dart';
@@ -14,12 +22,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      supportedLocales: [
+        Locale('en', ''),
+        Locale('ur', ''),
+      ],
       debugShowCheckedModeBanner: false,
       title: 'State Management',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-        useMaterial3: true,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
       home: const MyHomePage(title: 'Local State Management'),
     );
   }
@@ -304,10 +315,104 @@ class _MyHomePageState extends State<MyHomePage> {
                           onChanged: updateName,
                         ),
                         Text("Name: $name",style: TextStyle(color: Colors.blue),),
-
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              const Text(
+                                "Use Case No 7:  Preserve TextField State with ValueKey",
+                                style: TextStyle(color: Colors.pink),
+                              ),
+                              Container(
+                                  height: 200,
+                                  child: ValueKeyPreservation())
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Use Case No 8:  Preserve TextField State with UniqueKey",
+                          style: TextStyle(color: Colors.pink),
+                        ),
+                        Uniquekey_Preservation(),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Use Case No 9  Preserve TextField State with ObjectKey",
+                          style: TextStyle(color: Colors.pink),
+                        ),
+                        Container(
+                            height: 180,
+                            child: ObjectkeyPreservation()),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Use Case No 10 Inherited Widget State Management For Theme Mode",
+                          style: TextStyle(color: Colors.pink),
+                        ),
+                        Text("Current Theme Type",
+                        style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Use Case No 11 Inherited Widget State Management For MediaQuery",
+                          style: TextStyle(color: Colors.pink),
+                        ),
+                        MediaqueryState(),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Use Case No 12 Inherited Widget State Management For Navigation",
+                          style: TextStyle(color: Colors.pink),
+                        ),
+                        ElevatedButton(
+                          onPressed: (){
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) => SecondScreen(),));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: const CircleBorder(), // makes button circular
+                            padding: EdgeInsets.zero, // removes extra padding
+                            backgroundColor: Colors.blue, // button color
+                            foregroundColor: Colors.white, // icon color
+                            elevation: 4, // shadow
+                          ),
+                          child: const Icon(
+                            Icons.navigate_next_outlined,
+                            size: 28, // icon size
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Use Case No 13 Inherited Widget State Management\n For Localization Languages",
+                          style: TextStyle(color: Colors.pink),
+                        ),
+                        LanguageExample()
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  const Text(
+                    "Use Case No 14: Use Case No 13 Inherited Widget State Management\n For Authentication",
+                    style: TextStyle(color: Colors.pink),
+                  ),
+                  Container(
+                      height: 200,
+                      child: AuthExample())
                 ],
               ),
             ),
@@ -315,5 +420,30 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+}
+
+class AuthExample extends StatefulWidget {
+  const AuthExample({super.key});
+
+  @override
+  State<AuthExample> createState() => _AuthExampleState();
+}
+
+class _AuthExampleState extends State<AuthExample> {
+
+  String user = "Name";
+  void logout(){
+    setState(() {
+      user = "guest";
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AuthProvider(user: user, logout: logout, child: MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const HomeScreen(),
+    ));
   }
 }
