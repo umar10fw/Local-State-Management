@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:state_managment/Custom_Widget/InheritedWidget_State/Authentication_State.dart';
 import 'package:state_managment/Custom_Widget/Key_State_Preservation/UniqueKey.dart';
+import 'Custom_Widget/InheritedModel_State/Category Filters in E-commerce Apps.dart';
+import 'Custom_Widget/InheritedModel_State/Dashboards (Finance, Analytics, IoT).dart';
+import 'Custom_Widget/InheritedModel_State/Theme with Multiple Aspects.dart';
 import 'Custom_Widget/InheritedWidget_State/Localization_State.dart';
 import 'Custom_Widget/InheritedWidget_State/MediaQuery_State.dart';
 import 'Custom_Widget/InheritedWidget_State/Navigation_State.dart';
@@ -412,7 +415,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                       height: 200,
-                      child: AuthExample())
+                      child: AuthExample()),
+                  Container(
+                      height: 200,
+                      child: EcommercePage()),
+                  Container(
+                      height: 220,
+                      child: ThemePage()),
+                  Container(
+                      height: 220,
+                      child: DashboardPage())
                 ],
               ),
             ),
