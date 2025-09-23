@@ -13,6 +13,9 @@ import 'Custom_Widget/Key_State_Preservation/Value_Key_Preservation.dart';
 import 'Custom_Widget/Lifting_State/Favorite_Button.dart';
 import 'Custom_Widget/Lifting_State/FormField.dart';
 import 'Custom_Widget/Lifting_State/radioTileButton.dart';
+import 'Custom_Widget/ValueNotifier/Form Validation.dart';
+import 'Custom_Widget/ValueNotifier/Search Bar Typing.dart';
+import 'Custom_Widget/ValueNotifier/Slider Value Update.dart';
 
 void main() {
   runApp(const MyApp());
@@ -424,7 +427,47 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: ThemePage()),
                   Container(
                       height: 220,
-                      child: DashboardPage())
+                      child: DashboardPage()),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: const Text(
+                      "Use Case No 00:  ValueNotifier & ValueListenableBuilder local State Management\n For Search Bar",
+                      style: TextStyle(color: Colors.pink),
+                    ),
+                  ),
+                  Container(
+                      height: 200,
+                      child: SearchExample()),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: const Text(
+                      "Use Case No 00:  ValueNotifier & ValueListenableBuilder local State Management\n For Form Validation",
+                      style: TextStyle(color: Colors.pink),
+                    ),
+                  ),
+                  Container(
+                      height: 200,
+                      child: FormValidationExample()),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: const Text(
+                      "Use Case No 00:  ValueNotifier & ValueListenableBuilder local State Management\n For Slider Value Update",
+                      style: TextStyle(color: Colors.pink),
+                    ),
+                  ),
+                  Container(
+                      height: 200,
+                      child: SliderExample())
+
                 ],
               ),
             ),
